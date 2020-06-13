@@ -1,0 +1,60 @@
+var paper, dustbin;
+var ground;
+const Engine = Matter.Engine;
+const World = Matter.World;
+const Bodies = Matter.Bodies;
+const Body = Matter.Body;
+
+function preload()
+{
+	
+}
+
+function setup() {
+	createCanvas(800, 700);
+
+
+	engine = Engine.create();
+	world = engine.world;
+
+	var paper=createSprite(100,90,500,300);
+
+	var dustbin=createSprite(50,100,250,450);
+
+	var ground=Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
+	World.add(world, ground);
+
+
+	//packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:1.5, isStatic:false});
+	//World.add(world, packageBody);
+	
+
+	//Create a Ground
+	//ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
+ 	//World.add(world, ground);
+
+
+	Engine.run(engine);
+  
+}
+
+
+function draw() {
+  rectMode(CENTER);
+  background(0);
+  
+  
+  drawSprites();
+ 
+}
+
+
+function Keypressed(){
+
+	if(KeyCode === UP_ARROW){
+
+		Matter.Body.applyForce(paper.Body,paper.bsody.position,{x:85,y:-85})
+
+	}
+
+}
